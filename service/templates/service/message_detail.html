@@ -1,0 +1,26 @@
+{% extends 'service/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">{{ object.title }}</h1>
+</div>
+<main>
+    <div class="album py-3 bg-body-tertiary">
+        <div class="container text-center">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 g-3">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <h5 class="card-title">{{ object.subject }}</h5>
+                            <p class="card-text">{{ object.text }}</p>
+                            <a href="#" class="card-link">{{ object.picture }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

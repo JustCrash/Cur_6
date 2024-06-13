@@ -1,0 +1,29 @@
+{% extends 'service/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">{{ object.first_name|title }}</h1>
+</div>
+<main>
+    <div class="album py-3 bg-body-tertiary">
+        <div class="container text-center">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 g-3">
+                <div class="col">
+                    <p class="card shadow-sm">
+                        <img class="card-img-top" src="{{ object.emile }}" alt="Фотографии нет">
+                    </p>
+                </div>
+                <div class="col-5 text-md-start">
+                    {{ object.comment|truncatechars:20 }}
+                    <p>
+                        <a href="{% url 'service:client_list' %}"
+                           class="btn btn-primary justify-content-md-center my-5">Клиент созданный, {{object.owner}} $</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

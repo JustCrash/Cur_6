@@ -1,0 +1,22 @@
+{% extends 'service/base.html' %}
+{% block content %}
+<div class="col-8">
+   <head class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+       <h1 class="display-6">Ведите почту,
+           чтобы сбросить пароль который Вы не помните</h1>
+   </head>
+   <form class="row" method="post" enctype="multipart/form-data">
+       <div class="col_3">
+           <div class="col-6">
+               <div class="card">
+                   <div class="card-body">
+                       {% csrf_token %}
+                       <input type="mail" name="mail" >
+                       <button type="submit" class="btn btn-primary">Сбросить</button>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </form>
+</div>
+{% endblock %}

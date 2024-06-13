@@ -1,0 +1,43 @@
+{% extends 'service/base.html' %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-3 pb-md-3 mx-auto text-center">
+    <h1 class="display-4">Клиенты</h1>
+</div>
+<form method="post" action="" class="form-floating">
+    {% csrf_token %}
+        <a type="button" class="btn btn-lg btn-block btn-outline-primary"
+                                    href="{% url 'service:client_form' %}">
+                                    Добавить запись</a>
+    <div class="row">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for object in object_list|slice:5 %}
+            <div class="col-4">
+                <div class="card mb-6 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">
+                            {{object.email}}</h4>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"> {{object.first_name}}</h1>
+                            <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                            </ul>
+                            <a type="button" class="btn btn-lg btn-block btn-outline-primary"
+                               href="{% url 'service:client_detail' object.pk %}">
+                                Подробнее
+                            </a>
+                            <a type="button" class="btn btn-lg btn-block btn-outline-primary"
+                               href="{% url 'service:client_update' object.pk %}">
+                                Изменить
+                            </a>
+                            <a type="button" class="btn btn-lg btn-block btn-outline-primary"
+                               href="{% url 'service:client_delete' object.pk %}">
+                                Удалить
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</form>
+{% endblock %}
