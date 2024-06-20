@@ -24,7 +24,7 @@ def get_mailing_count_from_cache():
             mailing_quantity = Mailing.objects.all().count()
             cache.set(key, mailing_quantity)
     else:
-         mailing_quantity = Mailing.objects.all().count()
+        mailing_quantity = Mailing.objects.all().count()
 
     return mailing_quantity
 
